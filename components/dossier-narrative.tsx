@@ -17,7 +17,7 @@ export default function DossierNarrative({
               <Link
                 key={`${part.href}-${partIndex}`}
                 href={part.href}
-                className="font-semibold text-[#f8fafc] underline decoration-[#c89b45]/55 underline-offset-4 transition hover:text-[#e0b85a]"
+                className="font-semibold text-[#c89b45] underline decoration-[#c89b45]/55 underline-offset-4 transition hover:text-[#e0b85a] hover:decoration-[#e0b85a]"
               >
                 {part.name}
               </Link>
