@@ -30,15 +30,11 @@ export default function ArchiveSearchBar({ items }: ArchiveSearchBarProps) {
   }, [items, query]);
 
   return (
-    <div className="relative mx-auto mb-7 w-full max-w-2xl text-left">
+    <div className="relative mx-auto w-full text-left">
       <label htmlFor="archive-search" className="sr-only">
         Zoek in Meridian Archief
       </label>
-      <div className="group relative overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/92 shadow-[0_0_34px_rgba(200,155,69,0.12)] transition focus-within:border-[#c89b45] focus-within:shadow-[0_0_42px_rgba(200,155,69,0.28)]">
-        <span
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#5865f2] via-[#c89b45] to-[#fe2c55] opacity-80"
-          aria-hidden="true"
-        />
+      <div className="neon-animated-frame group relative overflow-hidden rounded-lg bg-[#09090b]/92 transition focus-within:shadow-[0_0_48px_rgba(200,155,69,0.34)]">
         <span
           className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#e0b85a]"
           aria-hidden="true"

@@ -23,6 +23,59 @@ body {
   color: #020617;
 }
 
+@property --neon-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.neon-animated-frame {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(9, 9, 11, 0.94), rgba(9, 9, 11, 0.94)) padding-box,
+    conic-gradient(
+        from var(--neon-angle),
+        rgba(88, 101, 242, 0.95),
+        rgba(200, 155, 69, 0.95),
+        rgba(37, 244, 238, 0.9),
+        rgba(254, 44, 85, 0.9),
+        rgba(224, 184, 90, 0.95),
+        rgba(88, 101, 242, 0.95)
+      )
+      border-box;
+  box-shadow:
+    0 0 22px rgba(200, 155, 69, 0.16),
+    inset 0 0 18px rgba(200, 155, 69, 0.04);
+  animation:
+    neon-border-spin 5.5s linear infinite,
+    neon-glow-pulse 2.8s ease-in-out infinite;
+}
+
+.neon-animated-frame:hover,
+.neon-animated-frame:focus-within {
+  box-shadow:
+    0 0 34px rgba(200, 155, 69, 0.32),
+    0 0 58px rgba(88, 101, 242, 0.16),
+    inset 0 0 20px rgba(224, 184, 90, 0.08);
+}
+
+@keyframes neon-border-spin {
+  to {
+    --neon-angle: 360deg;
+  }
+}
+
+@keyframes neon-glow-pulse {
+  0%,
+  100% {
+    filter: saturate(1);
+  }
+
+  50% {
+    filter: saturate(1.25);
+  }
+}
+
 .boot-grid {
   background-image:
     linear-gradient(rgba(248, 250, 252, 0.18) 1px, transparent 1px),
