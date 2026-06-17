@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import ArchiveBootScreen from "@/components/archive-boot-screen";
 import Navbar from "@/components/navbar";
 import "./globals.css";
 
@@ -30,8 +31,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#020617] text-[#f8fafc]">
-        <Navbar />
-        {children}
+        <ArchiveBootScreen>
+          <Navbar />
+          {children}
+        </ArchiveBootScreen>
       </body>
     </html>
   );

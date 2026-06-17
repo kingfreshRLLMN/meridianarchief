@@ -22,3 +22,24 @@ body {
   background: #c89b45;
   color: #020617;
 }
+
+.boot-grid {
+  background-image:
+    linear-gradient(rgba(248, 250, 252, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 250, 252, 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.boot-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: boot-letter-in 420ms ease forwards;
+}
+
+@keyframes boot-letter-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
