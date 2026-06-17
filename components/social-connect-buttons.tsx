@@ -17,12 +17,12 @@ const socialLinks = [
 
 export default function SocialConnectButtons() {
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
+    <div className="flex flex-wrap items-center gap-4">
       {socialLinks.map((link) => (
         <a
           key={link.name}
           href={link.href}
-          className={`group relative flex h-20 items-center gap-4 overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/90 px-5 text-base font-semibold text-[#f8fafc] shadow-lg shadow-black/20 transition duration-300 hover:border-[#c89b45] hover:bg-[#0b1120] ${link.glow}`}
+          className={`group relative flex h-14 w-44 items-center gap-3 overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/90 px-4 text-sm font-semibold text-[#f8fafc] shadow-lg shadow-black/20 transition duration-300 hover:border-[#c89b45] hover:bg-[#0b1120] ${link.glow}`}
         >
           <span
             className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${link.accent} opacity-80`}
@@ -33,12 +33,12 @@ export default function SocialConnectButtons() {
             aria-hidden="true"
           />
           <span
-            className={`relative flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-br ${link.accent} text-sm font-bold text-[#020617] transition group-hover:scale-105`}
+            className={`relative flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br ${link.accent} text-xs font-bold text-[#020617] transition group-hover:scale-105`}
             aria-hidden="true"
           >
             {link.short}
           </span>
-          <span className="relative text-lg">{link.name}</span>
+          <span className="relative">{link.name}</span>
         </a>
       ))}
     </div>
