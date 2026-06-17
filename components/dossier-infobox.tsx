@@ -6,7 +6,7 @@ type DossierFact = {
 };
 
 type DossierInfoboxProps = {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   image: string;
   imageAlt: string;

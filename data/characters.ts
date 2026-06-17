@@ -8,6 +8,7 @@ export type CharacterLink = {
 export type Character = {
   name: string;
   slug: string;
+  communityRecognized?: boolean;
   status: CharacterStatus;
   aliases: string[];
   fullName: string;
@@ -42,6 +43,7 @@ export const characters: Character[] = [
   {
     name: "Bobby Ray Fiasco",
     slug: "bobby-ray-fiasco",
+    communityRecognized: true,
     status: "Levend",
     aliases: ["Geen publiek bekende aliassen"],
     fullName: "Bobby Ray Fiasco",

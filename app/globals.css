@@ -91,6 +91,79 @@ body {
   animation: boot-letter-in 420ms ease forwards;
 }
 
+.recognized-community-badge {
+  filter:
+    drop-shadow(0 0 6px rgba(224, 184, 90, 0.7))
+    drop-shadow(0 0 14px rgba(200, 155, 69, 0.35));
+  animation: recognized-badge-glow 2.8s ease-in-out infinite;
+}
+
+.recognized-sparkle {
+  position: absolute;
+  width: 18%;
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: #fff4bf;
+  clip-path: polygon(
+    50% 0,
+    59% 39%,
+    100% 50%,
+    59% 61%,
+    50% 100%,
+    41% 61%,
+    0 50%,
+    41% 39%
+  );
+  filter: drop-shadow(0 0 4px rgba(224, 184, 90, 0.95));
+  animation: recognized-sparkle 2.8s ease-in-out infinite;
+}
+
+.recognized-sparkle-one {
+  right: -3%;
+  top: 5%;
+}
+
+.recognized-sparkle-two {
+  bottom: 4%;
+  left: -5%;
+  animation-delay: 1.35s;
+}
+
+@keyframes recognized-badge-glow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 5px rgba(224, 184, 90, 0.5))
+      drop-shadow(0 0 12px rgba(200, 155, 69, 0.24));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 9px rgba(255, 220, 128, 0.92))
+      drop-shadow(0 0 22px rgba(200, 155, 69, 0.48));
+  }
+}
+
+@keyframes recognized-sparkle {
+  0%,
+  58%,
+  100% {
+    opacity: 0;
+    transform: scale(0.35) rotate(0deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+
+  82% {
+    opacity: 0;
+    transform: scale(0.45) rotate(180deg);
+  }
+}
+
 @keyframes boot-letter-in {
   to {
     opacity: 1;

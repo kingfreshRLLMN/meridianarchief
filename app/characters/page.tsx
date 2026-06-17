@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RecognizedName from "@/components/recognized-name";
 import { characters } from "@/data/characters";
 
 export default function CharactersPage() {
@@ -34,7 +35,10 @@ export default function CharactersPage() {
                 href={`/characters/${character.slug}`}
                 className="block px-5 py-4 text-lg font-medium text-[#f8fafc] transition hover:bg-[#111827] hover:text-[#e0b85a]"
               >
-                {character.name}
+                <RecognizedName
+                  name={character.name}
+                  recognized={character.communityRecognized}
+                />
               </Link>
             ))}
           </div>

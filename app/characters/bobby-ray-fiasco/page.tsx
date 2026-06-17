@@ -1,6 +1,7 @@
 import DossierContents from "@/components/dossier-contents";
 import DossierInfobox from "@/components/dossier-infobox";
 import DossierSection from "@/components/dossier-section";
+import RecognizedName from "@/components/recognized-name";
 import ShareDossierButton from "@/components/share-dossier-button";
 import { characters } from "@/data/characters";
 import Link from "next/link";
@@ -34,7 +35,11 @@ export default function BobbyRayPage() {
                 Inwonersdossier
               </p>
               <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
-                {bobby.name}
+                <RecognizedName
+                  name={bobby.name}
+                  recognized={bobby.communityRecognized}
+                  badgeSize="large"
+                />
               </h1>
               <p className="mt-4 max-w-3xl leading-8 text-[#9ca3af]">
                 Een openbaar Meridian-dossier met bekende feiten, publieke
@@ -136,7 +141,12 @@ export default function BobbyRayPage() {
 
           <div className="lg:sticky lg:top-28 lg:self-start">
             <DossierInfobox
-              title={bobby.name}
+              title={
+                <RecognizedName
+                  name={bobby.name}
+                  recognized={bobby.communityRecognized}
+                />
+              }
               subtitle="Publiek inwonersprofiel"
               image={bobby.image}
               imageAlt={bobby.name}
