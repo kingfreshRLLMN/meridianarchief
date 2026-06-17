@@ -1,4 +1,7 @@
+import ArchiveSearchBar from "@/components/archive-search-bar";
 import SocialConnectButtons from "@/components/social-connect-buttons";
+import { businesses } from "@/data/businesses";
+import { characters } from "@/data/characters";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +16,19 @@ const portals = [
     eyebrow: "Dossiers",
     title: "Inwoners",
   },
+];
+
+const searchItems = [
+  ...businesses.map((business) => ({
+    name: business.name,
+    href: `/businesses/${business.slug}`,
+    type: "Bedrijf" as const,
+  })),
+  ...characters.map((character) => ({
+    name: character.name,
+    href: `/characters/${character.slug}`,
+    type: "Inwoner" as const,
+  })),
 ];
 
 export default function Home() {
@@ -32,6 +48,8 @@ export default function Home() {
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[6vh] pt-4 md:px-8 lg:pb-[9vh]">
           <div className="mx-auto w-full max-w-5xl text-center">
+            <ArchiveSearchBar items={searchItems} />
+
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Image
                 src="/logo.png"
@@ -60,7 +78,7 @@ export default function Home() {
                 <Link
                   key={portal.href}
                   href={portal.href}
-                  className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-6 shadow-[0_0_32px_rgba(2,6,23,0.45)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_34px_rgba(200,155,69,0.16)]"
+                  className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-6 shadow-[0_0_30px_rgba(200,155,69,0.10)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_42px_rgba(200,155,69,0.24)]"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e0b85a]">
                     {portal.eyebrow}

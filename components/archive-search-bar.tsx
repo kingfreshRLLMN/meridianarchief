@@ -1,0 +1,77 @@
+"use client";
+
+import Link from "next/link";
+import { useMemo, useState } from "react";
+
+type SearchItem = {
+  name: string;
+  href: string;
+  type: "Inwoner" | "Bedrijf";
+};
+
+type ArchiveSearchBarProps = {
+  items: SearchItem[];
+};
+
+export default function ArchiveSearchBar({ items }: ArchiveSearchBarProps) {
+  const [query, setQuery] = useState("");
+
+  const results = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return [];
+    }
+
+    return items
+      .filter((item) => item.name.toLowerCase().includes(normalizedQuery))
+      .sort((a, b) => a.name.localeCompare(b.name, "nl"))
+      .slice(0, 5);
+  }, [items, query]);
+
+  return (
+    <div className="relative mx-auto mb-7 w-full max-w-2xl text-left">
+      <label htmlFor="archive-search" className="sr-only">
+        Zoek in Meridian Archief
+      </label>
+      <div className="group relative overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/92 shadow-[0_0_34px_rgba(200,155,69,0.12)] transition focus-within:border-[#c89b45] focus-within:shadow-[0_0_42px_rgba(200,155,69,0.28)]">
+        <span
+          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#5865f2] via-[#c89b45] to-[#fe2c55] opacity-80"
+          aria-hidden="true"
+        />
+        <span
+          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#e0b85a]"
+          aria-hidden="true"
+        >
+          Search
+        </span>
+        <input
+          id="archive-search"
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Zoek inwoner of bedrijf..."
+          className="h-14 w-full bg-transparent pl-24 pr-4 text-sm font-medium text-[#f8fafc] outline-none placeholder:text-[#6b7280]"
+        />
+      </div>
+
+      {results.length > 0 ? (
+        <div className="absolute z-30 mt-3 w-full overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/96 shadow-[0_0_34px_rgba(200,155,69,0.18)] backdrop-blur">
+          {results.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="flex items-center justify-between border-b border-[#1f2937] px-4 py-3 text-sm text-[#f8fafc] transition last:border-b-0 hover:bg-[#0b1120] hover:text-[#e0b85a]"
+              onClick={() => setQuery("")}
+            >
+              <span className="font-semibold">{item.name}</span>
+              <span className="text-xs uppercase tracking-[0.18em] text-[#9ca3af]">
+                {item.type}
+              </span>
+            </Link>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}

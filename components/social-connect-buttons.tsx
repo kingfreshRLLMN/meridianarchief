@@ -22,7 +22,7 @@ export default function SocialConnectButtons() {
         <a
           key={link.name}
           href={link.href}
-          className={`group relative flex h-14 w-44 items-center gap-3 overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/90 px-4 text-sm font-semibold text-[#f8fafc] shadow-lg shadow-black/20 transition duration-300 hover:border-[#c89b45] hover:bg-[#0b1120] ${link.glow}`}
+          className={`group relative flex h-14 w-44 items-center gap-3 overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]/90 px-4 text-sm font-semibold text-[#f8fafc] shadow-[0_0_26px_rgba(200,155,69,0.12)] transition duration-300 hover:border-[#c89b45] hover:bg-[#0b1120] ${link.glow}`}
         >
           <span
             className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${link.accent} opacity-80`}
