@@ -47,7 +47,7 @@ export default function Home() {
               eyebrow="Register"
               title="Bedrijven"
               description="Bekijk openbare bedrijfsdossiers, eigenaren, statussen en bekende geschiedenis."
-              meta="Handmatig uitbreidbaar"
+              meta="Officieel ondernemingsregister"
             />
             <ArchiveCard
               href="/characters"
