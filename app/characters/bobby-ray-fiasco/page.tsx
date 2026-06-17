@@ -1,91 +1,117 @@
+import DossierContents from "@/components/dossier-contents";
+import DossierInfobox from "@/components/dossier-infobox";
 import DossierSection from "@/components/dossier-section";
 import { characters } from "@/data/characters";
-import Image from "next/image";
 import Link from "next/link";
+
+const contents = [
+  { href: "#overzicht", label: "Overzicht" },
+  { href: "#familie", label: "Familie" },
+  { href: "#ondernemingen", label: "Bekende ondernemingen" },
+  { href: "#gebeurtenissen", label: "Bekende gebeurtenissen" },
+  { href: "#geruchten", label: "Geruchten" },
+];
 
 export default function BobbyRayPage() {
   const bobby = characters[0];
 
   return (
-    <main className="min-h-screen bg-[#020617] px-4 py-12 text-[#f8fafc] md:px-8">
+    <main className="min-h-screen bg-[#020617] px-4 py-10 text-[#f8fafc] md:px-8">
       <div className="mx-auto max-w-7xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
-          Inwonersdossier
-        </p>
+        <header className="border-b border-[#1f2937] pb-7">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
+            Inwonersdossier
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
+            {bobby.name}
+          </h1>
+          <p className="mt-4 max-w-3xl leading-8 text-[#9ca3af]">
+            Een openbaar Meridian-dossier met bekende feiten, publieke
+            verbanden en duidelijk gemarkeerde geruchten.
+          </p>
+        </header>
 
-        <div className="mt-6 grid gap-8 lg:grid-cols-[360px_1fr]">
-          <aside className="rounded-lg border border-[#1f2937] bg-[#09090b] p-5">
-          <Image
-              src={bobby.image}
-              alt={bobby.name}
-              width={640}
-              height={640}
-              className="aspect-square w-full rounded-lg object-cover"
-          />
-            <dl className="mt-5 space-y-4 text-sm">
-              <div>
-                <dt className="text-[#9ca3af]">Status</dt>
-                <dd className="mt-1 font-medium text-[#f8fafc]">{bobby.status}</dd>
-              </div>
-              <div>
-                <dt className="text-[#9ca3af]">Beroep</dt>
-                <dd className="mt-1 font-medium text-[#f8fafc]">
-                  {bobby.beroep.join(" / ")}
-                </dd>
-              </div>
-            </dl>
-          </aside>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+          <div className="space-y-6">
+            <DossierContents items={contents} />
 
-          <section>
-            <h1 className="text-4xl font-semibold md:text-6xl">
-              {bobby.name}
-            </h1>
-            <p className="mt-5 max-w-3xl leading-8 text-[#9ca3af]">
-              Dit dossier bevat uitsluitend openbare informatie, bekende feiten
-              en geruchten die binnen de stad rondgaan.
-            </p>
+            <DossierSection id="overzicht" title="Overzicht">
+              <p>{bobby.openbareDossier}</p>
+            </DossierSection>
 
-            <div className="mt-8 grid gap-4">
-              <DossierSection title="Openbare informatie">
-                <p>{bobby.openbareDossier}</p>
-              </DossierSection>
+            <DossierSection id="familie" title="Familie">
+              <ul className="space-y-2">
+                {bobby.familie.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </DossierSection>
 
-              <DossierSection title="Familie">
-                <ul className="space-y-2">
-                  {bobby.familie.map((name) => (
-                    <li key={name}>{name}</li>
-                  ))}
-                </ul>
-              </DossierSection>
+            <DossierSection id="ondernemingen" title="Bekende ondernemingen">
+              <ul className="space-y-2">
+                {bobby.ondernemingen.map((business) => (
+                  <li key={business.href}>
+                    <Link
+                      href={business.href}
+                      className="font-semibold text-[#e0b85a] transition hover:text-[#f8fafc]"
+                    >
+                      {business.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </DossierSection>
 
-              <DossierSection title="Bekende ondernemingen">
-                <ul className="space-y-2">
-                  {bobby.ondernemingen.map((business) => (
-                    <li key={business.href}>
-                      <Link
-                        href={business.href}
-                        className="font-medium text-[#e0b85a] transition hover:text-[#f8fafc]"
-                      >
-                        {business.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </DossierSection>
+            <DossierSection id="gebeurtenissen" title="Bekende gebeurtenissen">
+              <ul className="space-y-3">
+                {bobby.gebeurtenissen.map((event) => (
+                  <li key={event} className="border-l border-[#c89b45]/60 pl-4">
+                    {event}
+                  </li>
+                ))}
+              </ul>
+            </DossierSection>
 
-              <DossierSection title="Bekende gebeurtenissen">
-                <ul className="space-y-2">
-                  {bobby.gebeurtenissen.map((event) => (
-                    <li key={event}>{event}</li>
-                  ))}
-                </ul>
-              </DossierSection>
+            <DossierSection id="geruchten" title="Geruchten">
+              <p className="italic text-[#9ca3af]">{bobby.geruchten}</p>
+            </DossierSection>
+          </div>
 
-              <DossierSection title="Geruchten">
-                <p>{bobby.geruchten}</p>
-              </DossierSection>
-            </div>
-          </section>
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <DossierInfobox
+              title={bobby.name}
+              subtitle="Publiek inwonersprofiel"
+              image={bobby.image}
+              imageAlt={bobby.name}
+              sections={[
+                {
+                  title: "Dossierinformatie",
+                  facts: [
+                    { label: "Status", value: bobby.status },
+                    { label: "Beroep", value: bobby.beroep.join(" / ") },
+                    { label: "Woonplaats", value: "Meridian" },
+                  ],
+                },
+                {
+                  title: "Relaties",
+                  facts: [
+                    { label: "Familie", value: bobby.familie.join(", ") },
+                    {
+                      label: "Onderneming",
+                      value: (
+                        <Link
+                          href="/businesses/fiasco-ink"
+                          className="font-semibold text-[#e0b85a]"
+                        >
+                          Fiasco Ink
+                        </Link>
+                      ),
+                    },
+                  ],
+                },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </main>
