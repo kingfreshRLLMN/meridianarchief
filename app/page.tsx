@@ -32,12 +32,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/35 via-[#020617]/68 to-[#020617]/92" />
         </div>
 
+        <div className="absolute left-1/2 top-5 z-20 w-full max-w-2xl -translate-x-1/2 px-4">
+          <ArchiveSearchBar items={searchItems} />
+        </div>
+
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[7vh] pt-24 md:px-8 md:pb-[10vh] md:pt-28">
           <div className="mx-auto w-full max-w-5xl text-center">
-            <div className="mx-auto mb-8 max-w-2xl">
-              <ArchiveSearchBar items={searchItems} />
-            </div>
-
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Image
                 src="/logo.png"
