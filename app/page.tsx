@@ -31,8 +31,8 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[6vh] pt-4 md:px-8 lg:pb-[9vh]">
-          <div className="mx-auto w-full max-w-5xl">
-            <div className="mb-6 flex items-center gap-4">
+          <div className="mx-auto w-full max-w-5xl text-center">
+            <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Image
                 src="/logo.png"
                 alt="Meridian logo"
@@ -40,7 +40,7 @@ export default function Home() {
                 height={88}
                 className="h-20 w-20 rounded-lg border border-[#1f2937] bg-[#09090b]/80 object-contain p-2 shadow-[0_0_34px_rgba(200,155,69,0.18)] md:h-24 md:w-24"
               />
-              <div>
+              <div className="text-center sm:text-left">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
                   Publiek stadsarchief
                 </p>
@@ -50,7 +50,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="max-w-3xl text-base leading-7 text-[#d1d5db] md:text-lg">
+            <p className="mx-auto max-w-3xl text-base leading-7 text-[#d1d5db] md:text-lg">
               Het publieke stadsarchief van Meridian: inwonersdossiers,
               ondernemingsregisters en openbare informatie die de stad vormgeeft.
             </p>
