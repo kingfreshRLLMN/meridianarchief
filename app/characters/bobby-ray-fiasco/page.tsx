@@ -1,6 +1,7 @@
 import DossierContents from "@/components/dossier-contents";
 import DossierInfobox from "@/components/dossier-infobox";
 import DossierSection from "@/components/dossier-section";
+import ShareDossierButton from "@/components/share-dossier-button";
 import { characters } from "@/data/characters";
 import Link from "next/link";
 
@@ -19,16 +20,23 @@ export default function BobbyRayPage() {
     <main className="min-h-screen bg-[#020617] px-4 py-10 text-[#f8fafc] md:px-8">
       <div className="mx-auto max-w-7xl">
         <header className="border-b border-[#1f2937] pb-7">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
-            Inwonersdossier
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
-            {bobby.name}
-          </h1>
-          <p className="mt-4 max-w-3xl leading-8 text-[#9ca3af]">
-            Een openbaar Meridian-dossier met bekende feiten, publieke
-            verbanden en duidelijk gemarkeerde geruchten.
-          </p>
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:gap-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
+                Inwonersdossier
+              </p>
+              <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
+                {bobby.name}
+              </h1>
+              <p className="mt-4 max-w-3xl leading-8 text-[#9ca3af]">
+                Een openbaar Meridian-dossier met bekende feiten, publieke
+                verbanden en duidelijk gemarkeerde geruchten.
+              </p>
+            </div>
+            <div className="shrink-0 sm:pt-1">
+              <ShareDossierButton />
+            </div>
+          </div>
         </header>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
