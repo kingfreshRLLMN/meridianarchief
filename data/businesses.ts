@@ -4,29 +4,16 @@ export const businesses = [
     slug: "fiasco-ink",
     categorie: "Tattoozaak",
     status: "Actief",
-    eigenaar: "Bobby Ray Fiasco",
+    eigenaar: { name: "Bobby Ray Fiasco", href: "/characters/bobby-ray-fiasco" },
     opgericht: "2026",
     locatie: "Meridian",
     beschrijving:
-      "Een hoogwaardige tattoozaak gespecialiseerd in custom designs en gedetailleerd werk.",
+      "Een premium tattoozaak gespecialiseerd in custom designs, gedetailleerd lijnwerk en persoonlijke sessies.",
     geschiedenis:
-      "Opgericht als een van de eerste creatieve ondernemingen binnen Meridian.",
+      "Fiasco Ink werd geregistreerd als creatieve onderneming binnen Meridian en groeide uit tot een herkenbare naam voor inwoners die op zoek zijn naar maatwerk en vakmanschap.",
     openbareInfo:
-      "Bekend om vakmanschap, kwaliteit en een sterke reputatie binnen de stad.",
-  },
-  {
-    name: "White Widow",
-    slug: "white-widow",
-    categorie: "Coffeeshop",
-    status: "Actief",
-    eigenaar: "Hugo Fiasco",
-    opgericht: "2026",
-    locatie: "Meridian",
-    beschrijving:
-      "Een bekende ontmoetingsplek binnen Meridian waar bewoners samenkomen.",
-    geschiedenis:
-      "Groeide snel uit tot een gevestigde naam binnen de lokale economie.",
-    openbareInfo:
-      "Wordt veel bezocht door inwoners, ondernemers en vaste klanten.",
+      "Publiek bekend om vakmanschap, rustige service en een sterke lokale reputatie.",
+    werknemers: ["Bobby Ray Fiasco"],
+    image: "/businesses/fiasco-ink.png",
   },
 ];

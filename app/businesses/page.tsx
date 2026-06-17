@@ -1,30 +1,34 @@
-import Link from "next/link";
-import Navbar from "@/components/navbar";
+import ArchiveCard from "@/components/archive-card";
+import { businesses } from "@/data/businesses";
 
 export default function BusinessesPage() {
   return (
-    <>
-      <Navbar />
-
-      <main className="min-h-screen bg-black text-white p-8">
-        <h1 className="text-4xl font-bold text-yellow-500 mb-4">
+    <main className="min-h-screen bg-[#020617] px-4 py-12 text-[#f8fafc] md:px-8">
+      <section className="mx-auto max-w-7xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
           Bedrijvenarchief
+        </p>
+        <h1 className="mt-3 text-4xl font-semibold md:text-5xl">
+          Ondernemingen in Meridian
         </h1>
-
-        <p className="text-gray-400 mb-8">
-          Openbare bedrijfsdossiers binnen Meridian.
+        <p className="mt-5 max-w-3xl leading-8 text-[#9ca3af]">
+          Een openbaar register van bedrijven, eigenaren en bekende geschiedenis
+          binnen de stad. Bedrijfsinformatie blijft bewust publiek en RP-safe.
         </p>
 
-        <Link
-          href="/businesses/fiasco-ink"
-          className="block border border-zinc-800 bg-zinc-950 rounded-xl p-6 hover:border-yellow-500 transition"
-        >
-          <h2 className="text-2xl font-bold">Fiasco Ink</h2>
-          <p className="text-gray-400">
-            Tattoozaak
-          </p>
-        </Link>
-      </main>
-    </>
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {businesses.map((business) => (
+            <ArchiveCard
+              key={business.slug}
+              href={`/businesses/${business.slug}`}
+              eyebrow={business.status}
+              title={business.name}
+              description={business.beschrijving}
+              meta={`${business.categorie} / Eigenaar: ${business.eigenaar.name}`}
+            />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

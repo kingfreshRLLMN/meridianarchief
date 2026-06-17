@@ -1,43 +1,90 @@
-import Navbar from "@/components/navbar";
+import DossierSection from "@/components/dossier-section";
+import { businesses } from "@/data/businesses";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function FiascoInkPage() {
+  const fiascoInk = businesses[0];
+
   return (
-    <>
-      <Navbar />
+    <main className="min-h-screen bg-[#020617] px-4 py-12 text-[#f8fafc] md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
+          Bedrijfsdossier
+        </p>
 
-      <main className="min-h-screen bg-black text-white p-8">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-yellow-500 mb-2">Bedrijfsdossier</p>
+        <div className="mt-6 grid gap-8 lg:grid-cols-[360px_1fr]">
+          <aside className="rounded-lg border border-[#1f2937] bg-[#09090b] p-5">
+            <Image
+              src={fiascoInk.image}
+              alt={fiascoInk.name}
+              width={640}
+              height={640}
+              className="aspect-square w-full rounded-lg object-cover"
+            />
+            <dl className="mt-5 space-y-4 text-sm">
+              <div>
+                <dt className="text-[#9ca3af]">Status</dt>
+                <dd className="mt-1 font-medium text-[#f8fafc]">
+                  {fiascoInk.status}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[#9ca3af]">Categorie</dt>
+                <dd className="mt-1 font-medium text-[#f8fafc]">
+                  {fiascoInk.categorie}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[#9ca3af]">Locatie</dt>
+                <dd className="mt-1 font-medium text-[#f8fafc]">
+                  {fiascoInk.locatie}
+                </dd>
+              </div>
+            </dl>
+          </aside>
 
-          <h1 className="text-5xl font-bold mb-4">
-            Fiasco Ink
-          </h1>
-          <p className="text-gray-400 mb-8">
-            Hoogwaardige tattoozaak gevestigd in Meridian.
-          </p>
-
-          <section className="border border-zinc-800 bg-zinc-950 rounded-xl p-6 mb-6">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-              Bedrijfsinformatie
-            </h2>
-
-            <p className="text-gray-300 leading-7">
-              Fiasco Ink staat bekend om custom tattoo designs, vakmanschap en precisie.
-              De zaak heeft binnen korte tijd een sterke naam opgebouwd.
+          <section>
+            <h1 className="text-4xl font-semibold md:text-6xl">
+              {fiascoInk.name}
+            </h1>
+            <p className="mt-5 max-w-3xl leading-8 text-[#9ca3af]">
+              {fiascoInk.beschrijving}
             </p>
-          </section>
 
-          <section className="border border-zinc-800 bg-zinc-950 rounded-xl p-6">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-              Eigenaar
-            </h2>
+            <div className="mt-8 grid gap-4">
+              <DossierSection title="Eigenaar">
+                <Link
+                  href={fiascoInk.eigenaar.href}
+                  className="font-medium text-[#e0b85a] transition hover:text-[#f8fafc]"
+                >
+                  {fiascoInk.eigenaar.name}
+                </Link>
+              </DossierSection>
 
-            <p className="text-gray-300">
-              Bobby Ray Fiasco
-            </p>
+              <DossierSection title="Beschrijving">
+                <p>{fiascoInk.beschrijving}</p>
+              </DossierSection>
+
+              <DossierSection title="Geschiedenis">
+                <p>{fiascoInk.geschiedenis}</p>
+              </DossierSection>
+
+              <DossierSection title="Werknemers">
+                <ul className="space-y-2">
+                  {fiascoInk.werknemers.map((employee) => (
+                    <li key={employee}>{employee}</li>
+                  ))}
+                </ul>
+              </DossierSection>
+
+              <DossierSection title="Openbare informatie">
+                <p>{fiascoInk.openbareInfo}</p>
+              </DossierSection>
+            </div>
           </section>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

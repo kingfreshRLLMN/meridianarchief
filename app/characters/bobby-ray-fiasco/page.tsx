@@ -1,62 +1,93 @@
-import Navbar from "@/components/navbar";
+import DossierSection from "@/components/dossier-section";
+import { characters } from "@/data/characters";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BobbyRayPage() {
+  const bobby = characters[0];
+
   return (
-    <>
-      <Navbar />
+    <main className="min-h-screen bg-[#020617] px-4 py-12 text-[#f8fafc] md:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
+          Inwonersdossier
+        </p>
 
-      <main className="min-h-screen bg-black text-white p-8">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-yellow-500 mb-2">Inwonersdossier</p>
-
-          <h1 className="text-5xl font-bold mb-4">
-            Bobby Ray Fiasco
-          </h1>
+        <div className="mt-6 grid gap-8 lg:grid-cols-[360px_1fr]">
+          <aside className="rounded-lg border border-[#1f2937] bg-[#09090b] p-5">
           <Image
-            src="/characters/bobby-ray.png"
-            alt="Bobby Ray Fiasco"
-            width={400}
-            height={400}
-            className="rounded-xl mb-8 object-cover w-auto h-auto"
+              src={bobby.image}
+              alt={bobby.name}
+              width={640}
+              height={640}
+              className="aspect-square w-full rounded-lg object-cover"
           />
-          <p className="text-gray-400 mb-8">
-            Bekend ondernemer binnen Meridian en eigenaar van Fiasco Ink.
-          </p>
+            <dl className="mt-5 space-y-4 text-sm">
+              <div>
+                <dt className="text-[#9ca3af]">Status</dt>
+                <dd className="mt-1 font-medium text-[#f8fafc]">{bobby.status}</dd>
+              </div>
+              <div>
+                <dt className="text-[#9ca3af]">Beroep</dt>
+                <dd className="mt-1 font-medium text-[#f8fafc]">
+                  {bobby.beroep.join(" / ")}
+                </dd>
+              </div>
+            </dl>
+          </aside>
 
-          <section className="border border-zinc-800 bg-zinc-950 rounded-xl p-6 mb-6">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-              Openbare informatie
-            </h2>
-
-            <p className="text-gray-300 leading-7">
-              Bobby Ray Fiasco staat binnen Meridian bekend als een ondernemer
-              met een sterke reputatie en een duidelijke focus op kwaliteit en loyaliteit.
+          <section>
+            <h1 className="text-4xl font-semibold md:text-6xl">
+              {bobby.name}
+            </h1>
+            <p className="mt-5 max-w-3xl leading-8 text-[#9ca3af]">
+              Dit dossier bevat uitsluitend openbare informatie, bekende feiten
+              en geruchten die binnen de stad rondgaan.
             </p>
-          </section>
 
-          <section className="border border-zinc-800 bg-zinc-950 rounded-xl p-6 mb-6">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-              Familie
-            </h2>
+            <div className="mt-8 grid gap-4">
+              <DossierSection title="Openbare informatie">
+                <p>{bobby.openbareDossier}</p>
+              </DossierSection>
 
-            <p className="text-gray-300">
-              Hugo Fiasco (broer)
-            </p>
-          </section>
+              <DossierSection title="Familie">
+                <ul className="space-y-2">
+                  {bobby.familie.map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
+              </DossierSection>
 
-          <section className="border border-zinc-800 bg-zinc-950 rounded-xl p-6">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-              Geruchten
-            </h2>
+              <DossierSection title="Bekende ondernemingen">
+                <ul className="space-y-2">
+                  {bobby.ondernemingen.map((business) => (
+                    <li key={business.href}>
+                      <Link
+                        href={business.href}
+                        className="font-medium text-[#e0b85a] transition hover:text-[#f8fafc]"
+                      >
+                        {business.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </DossierSection>
 
-            <p className="text-gray-300 leading-7">
-              Binnen Meridian gaan verhalen rond over een verleden in de vechtsportwereld,
-              maar deze informatie is nooit officieel bevestigd.
-            </p>
+              <DossierSection title="Bekende gebeurtenissen">
+                <ul className="space-y-2">
+                  {bobby.gebeurtenissen.map((event) => (
+                    <li key={event}>{event}</li>
+                  ))}
+                </ul>
+              </DossierSection>
+
+              <DossierSection title="Geruchten">
+                <p>{bobby.geruchten}</p>
+              </DossierSection>
+            </div>
           </section>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
