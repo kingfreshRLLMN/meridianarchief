@@ -35,17 +35,18 @@ body {
     linear-gradient(rgba(9, 9, 11, 0.94), rgba(9, 9, 11, 0.94)) padding-box,
     conic-gradient(
         from var(--neon-angle),
-        rgba(88, 101, 242, 0.95),
-        rgba(200, 155, 69, 0.95),
-        rgba(37, 244, 238, 0.9),
-        rgba(254, 44, 85, 0.9),
-        rgba(224, 184, 90, 0.95),
-        rgba(88, 101, 242, 0.95)
+        rgba(200, 155, 69, 0.98),
+        rgba(224, 184, 90, 0.94),
+        rgba(15, 23, 42, 0.9),
+        rgba(245, 202, 104, 0.98),
+        rgba(120, 83, 32, 0.92),
+        rgba(200, 155, 69, 0.98)
       )
       border-box;
   box-shadow:
-    0 0 22px rgba(200, 155, 69, 0.16),
-    inset 0 0 18px rgba(200, 155, 69, 0.04);
+    0 0 24px rgba(200, 155, 69, 0.2),
+    0 0 54px rgba(224, 184, 90, 0.06),
+    inset 0 0 18px rgba(200, 155, 69, 0.05);
   animation:
     neon-border-spin 5.5s linear infinite,
     neon-glow-pulse 2.8s ease-in-out infinite;
@@ -54,9 +55,9 @@ body {
 .neon-animated-frame:hover,
 .neon-animated-frame:focus-within {
   box-shadow:
-    0 0 34px rgba(200, 155, 69, 0.32),
-    0 0 58px rgba(88, 101, 242, 0.16),
-    inset 0 0 20px rgba(224, 184, 90, 0.08);
+    0 0 34px rgba(200, 155, 69, 0.36),
+    0 0 68px rgba(224, 184, 90, 0.18),
+    inset 0 0 20px rgba(224, 184, 90, 0.1);
 }
 
 @keyframes neon-border-spin {

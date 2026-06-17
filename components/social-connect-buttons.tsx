@@ -3,13 +3,13 @@ const socialLinks = [
     name: "Discord",
     href: "#discord",
     short: "DC",
-    accent: "from-[#5865f2] via-[#7b83ff] to-[#c89b45]",
+    accent: "from-[#0b1120] via-[#c89b45] to-[#e0b85a]",
   },
   {
     name: "TikTok",
     href: "#tiktok",
     short: "TT",
-    accent: "from-[#25f4ee] via-[#c89b45] to-[#fe2c55]",
+    accent: "from-[#050505] via-[#c89b45] to-[#f5ca68]",
   },
 ];
 
