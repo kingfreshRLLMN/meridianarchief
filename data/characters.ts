@@ -5,6 +5,17 @@ export type CharacterLink = {
   href?: string;
 };
 
+export type NarrativePart =
+  | {
+      text: string;
+    }
+  | {
+      name: string;
+      href: string;
+    };
+
+export type NarrativeParagraph = NarrativePart[];
+
 export type Character = {
   name: string;
   slug: string;
@@ -30,11 +41,11 @@ export type Character = {
   knownRivals: CharacterLink[];
   businesses: CharacterLink[];
   work: string[];
-  publicProfile: string;
   past: string[];
   arrivalInMeridian: string[];
   familyStory: string[];
-  businessStory: string[];
+  connectionStory: NarrativeParagraph[];
+  businessStory: NarrativeParagraph[];
   rumors: string[];
   image: string;
 };
@@ -67,8 +78,6 @@ export const characters: Character[] = [
       { name: "Fiasco Ink", href: "/businesses/fiasco-ink" },
     ],
     work: ["Eigenaar van Fiasco Ink", "Ondernemer"],
-    publicProfile:
-      "Bobby Ray Fiasco is binnen Meridian publiek bekend als ondernemer en als het gezicht achter Fiasco Ink. Zijn naam wordt vooral verbonden aan creatieve ondernemingen, custom tattoo designs en de opbouw van een herkenbare lokale zaak.",
     past: [
       "Over de periode vóór zijn komst naar Meridian is weinig verifieerbare informatie opgenomen in het publieke archief. Bobby heeft zijn voorgeschiedenis niet uitgebreid openbaar gemaakt en officiële documenten geven geen volledig beeld van zijn eerdere woonplaatsen of werkzaamheden.",
       "In informele gesprekken wordt een mogelijke achtergrond in de vechtsport genoemd. Daarvoor ontbreekt binnen het publieke stadsarchief echter voldoende bevestiging. Deze informatie wordt daarom niet als vastgesteld onderdeel van zijn levensloop beschouwd.",
@@ -82,10 +91,38 @@ export const characters: Character[] = [
       "Hugo Fiasco staat in het openbare dossier vermeld als familie van Bobby Ray Fiasco. Over de precieze aard en geschiedenis van hun familieband is weinig publiek vastgelegd.",
       "Andere familieleden of aanvullende familieverbanden zijn momenteel niet openbaar geregistreerd.",
     ],
+    connectionStory: [
+      [
+        {
+          text: "Binnen het openbare archief zijn momenteel geen vaste zakenpartners van Bobby bevestigd. Ook over bekende connecties buiten zijn onderneming is weinig betrouwbare informatie beschikbaar.",
+        },
+      ],
+      [
+        {
+          text: "Er zijn op dit moment geen publiek geregistreerde rivalen. Wanneer een samenwerking, connectie of rivaliteit openbaar bekend wordt, kan de betreffende naam hier rechtstreeks naar het bijbehorende inwoners- of bedrijfsdossier linken.",
+        },
+      ],
+    ],
     businessStory: [
-      "Fiasco Ink is de voornaamste bekende onderneming die aan Bobby wordt gekoppeld. Hij geldt publiekelijk als eigenaar en is het herkenbare gezicht van de zaak.",
-      "Zijn werkzaamheden bestaan uit het leiden van de onderneming, het onderhouden van de publieke reputatie en het ondersteunen van de creatieve dienstverlening rond custom tattoo designs.",
-      "Er zijn op dit moment geen andere officieel geregistreerde ondernemingen of vaste zakenpartners aan zijn openbare profiel toegevoegd.",
+      [
+        {
+          name: "Fiasco Ink",
+          href: "/businesses/fiasco-ink",
+        },
+        {
+          text: " is de voornaamste bekende onderneming die aan Bobby wordt gekoppeld. Hij geldt publiekelijk als eigenaar en is het herkenbare gezicht van de zaak.",
+        },
+      ],
+      [
+        {
+          text: "Zijn werkzaamheden bestaan uit het leiden van de onderneming, het onderhouden van de publieke reputatie en het ondersteunen van de creatieve dienstverlening rond custom tattoo designs.",
+        },
+      ],
+      [
+        {
+          text: "Er zijn op dit moment geen andere officieel geregistreerde ondernemingen of vaste zakenpartners aan zijn openbare profiel toegevoegd.",
+        },
+      ],
     ],
     rumors: [
       "Er gaan verhalen rond over een verleden in de vechtsportwereld, maar dit is niet officieel bevestigd in het publieke archief.",

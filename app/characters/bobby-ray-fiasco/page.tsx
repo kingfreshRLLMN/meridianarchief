@@ -1,5 +1,6 @@
 import DossierContents from "@/components/dossier-contents";
 import DossierInfobox from "@/components/dossier-infobox";
+import DossierNarrative from "@/components/dossier-narrative";
 import DossierSection from "@/components/dossier-section";
 import FixedDossierSidebar from "@/components/fixed-dossier-sidebar";
 import RecognizedName from "@/components/recognized-name";
@@ -8,7 +9,6 @@ import { characters } from "@/data/characters";
 import Link from "next/link";
 
 const contents = [
-  { href: "#overzicht", label: "Overzicht" },
   { href: "#verleden", label: "Verleden" },
   { href: "#aankomst", label: "Aankomst in Meridian" },
   { href: "#familie", label: "Familie" },
@@ -57,10 +57,6 @@ export default function BobbyRayPage() {
           <div className="space-y-6">
             <DossierContents items={contents} />
 
-            <DossierSection id="overzicht" title="Overzicht">
-              <p>{bobby.publicProfile}</p>
-            </DossierSection>
-
             <DossierSection id="verleden" title="Verleden">
               <div className="space-y-4">
                 {bobby.past.map((paragraph) => (
@@ -86,47 +82,11 @@ export default function BobbyRayPage() {
             </DossierSection>
 
             <DossierSection id="connecties" title="Connecties en rivalen">
-              <dl className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <dt className="font-semibold text-[#e0b85a]">Zakenpartners</dt>
-                  <dd className="mt-1">{displayNames(bobby.businessPartners)}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-[#e0b85a]">
-                    Bekende connecties
-                  </dt>
-                  <dd className="mt-1">{displayNames(bobby.knownConnections)}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-[#e0b85a]">
-                    Bekende rivalen
-                  </dt>
-                  <dd className="mt-1">{displayNames(bobby.knownRivals)}</dd>
-                </div>
-              </dl>
+              <DossierNarrative paragraphs={bobby.connectionStory} />
             </DossierSection>
 
             <DossierSection id="ondernemingen" title="Ondernemingen en werk">
-              <div className="space-y-4">
-                {bobby.businessStory.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {bobby.businesses.map((business) =>
-                    business.href ? (
-                      <Link
-                        key={business.name}
-                        href={business.href}
-                        className="rounded-md border border-[#c89b45]/45 bg-[#09090b] px-3 py-2 font-semibold text-[#e0b85a] transition hover:border-[#e0b85a] hover:text-[#f8fafc]"
-                      >
-                        {business.name}
-                      </Link>
-                    ) : (
-                      <span key={business.name}>{business.name}</span>
-                    ),
-                  )}
-                </div>
-              </div>
+              <DossierNarrative paragraphs={bobby.businessStory} />
             </DossierSection>
 
             <DossierSection id="geruchten" title="Geruchten">
