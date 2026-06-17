@@ -1,6 +1,7 @@
 import DossierContents from "@/components/dossier-contents";
 import DossierInfobox from "@/components/dossier-infobox";
 import DossierSection from "@/components/dossier-section";
+import FixedDossierSidebar from "@/components/fixed-dossier-sidebar";
 import RecognizedName from "@/components/recognized-name";
 import ShareDossierButton from "@/components/share-dossier-button";
 import { characters } from "@/data/characters";
@@ -28,7 +29,7 @@ export default function BobbyRayPage() {
   return (
     <main className="min-h-screen bg-[#020617] px-4 py-10 text-[#f8fafc] md:px-8">
       <div className="mx-auto max-w-7xl">
-        <header className="border-b border-[#1f2937] pb-7">
+        <header className="border-b border-[#1f2937] pb-7 lg:pr-[412px]">
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:gap-8">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
@@ -139,7 +140,7 @@ export default function BobbyRayPage() {
             </DossierSection>
           </div>
 
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <FixedDossierSidebar>
             <DossierInfobox
               title={
                 <RecognizedName
@@ -239,7 +240,7 @@ export default function BobbyRayPage() {
                 },
               ]}
             />
-          </div>
+          </FixedDossierSidebar>
         </div>
       </div>
     </main>
