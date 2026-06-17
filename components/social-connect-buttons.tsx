@@ -15,15 +15,15 @@ const socialLinks = [
 
 export default function SocialConnectButtons() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="grid gap-3 sm:grid-cols-2">
       {socialLinks.map((link) => (
         <a
           key={link.name}
           href={link.href}
-          className="group flex h-12 min-w-36 items-center gap-3 rounded-lg border border-[#1f2937] bg-[#09090b]/88 px-4 text-sm font-semibold text-[#f8fafc] shadow-lg shadow-black/20 transition hover:border-[#c89b45] hover:bg-[#0b1120]"
+          className="group flex h-16 items-center gap-4 rounded-lg border border-[#1f2937] bg-[#09090b]/90 px-5 text-base font-semibold text-[#f8fafc] shadow-lg shadow-black/20 transition hover:border-[#c89b45] hover:bg-[#0b1120]"
         >
           <span
-            className={`flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br ${link.accent} text-sm font-bold text-[#020617] transition group-hover:scale-105`}
+            className={`flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br ${link.accent} text-base font-bold text-[#020617] transition group-hover:scale-105`}
             aria-hidden="true"
           >
             {link.icon}
