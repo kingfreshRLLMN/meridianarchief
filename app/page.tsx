@@ -31,51 +31,53 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[6vh] pt-4 md:px-8 lg:pb-[9vh]">
-          <div className="mb-6 flex items-center gap-4">
-            <Image
-              src="/logo.png"
-              alt="Meridian logo"
-              width={88}
-              height={88}
-              className="h-20 w-20 rounded-lg border border-[#1f2937] bg-[#09090b]/80 object-contain p-2 shadow-[0_0_34px_rgba(200,155,69,0.18)] md:h-24 md:w-24"
-            />
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
-                Publiek stadsarchief
-              </p>
-              <h1 className="mt-2 max-w-4xl text-5xl font-semibold text-[#f8fafc] md:text-7xl">
-                Meridian Archief
-              </h1>
-            </div>
-          </div>
-
-          <p className="max-w-3xl text-base leading-7 text-[#d1d5db] md:text-lg">
-            Het publieke stadsarchief van Meridian: inwonersdossiers,
-            ondernemingsregisters en openbare informatie die de stad vormgeeft.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {portals.map((portal) => (
-              <Link
-                key={portal.href}
-                href={portal.href}
-                className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-6 shadow-[0_0_32px_rgba(2,6,23,0.45)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_34px_rgba(200,155,69,0.16)]"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e0b85a]">
-                  {portal.eyebrow}
+          <div className="mx-auto w-full max-w-5xl">
+            <div className="mb-6 flex items-center gap-4">
+              <Image
+                src="/logo.png"
+                alt="Meridian logo"
+                width={88}
+                height={88}
+                className="h-20 w-20 rounded-lg border border-[#1f2937] bg-[#09090b]/80 object-contain p-2 shadow-[0_0_34px_rgba(200,155,69,0.18)] md:h-24 md:w-24"
+              />
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#e0b85a]">
+                  Publiek stadsarchief
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold text-[#f8fafc] md:text-4xl">
-                  {portal.title}
-                </h2>
-              </Link>
-            ))}
-          </div>
+                <h1 className="mt-2 max-w-4xl text-5xl font-semibold text-[#f8fafc] md:text-7xl">
+                  Meridian Archief
+                </h1>
+              </div>
+            </div>
 
-          <div className="mt-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9ca3af]">
-              Verbind met Meridian
+            <p className="max-w-3xl text-base leading-7 text-[#d1d5db] md:text-lg">
+              Het publieke stadsarchief van Meridian: inwonersdossiers,
+              ondernemingsregisters en openbare informatie die de stad vormgeeft.
             </p>
-            <SocialConnectButtons />
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {portals.map((portal) => (
+                <Link
+                  key={portal.href}
+                  href={portal.href}
+                  className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-6 shadow-[0_0_32px_rgba(2,6,23,0.45)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_34px_rgba(200,155,69,0.16)]"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e0b85a]">
+                    {portal.eyebrow}
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold text-[#f8fafc] md:text-4xl">
+                    {portal.title}
+                  </h2>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9ca3af]">
+                Verbind met Meridian
+              </p>
+              <SocialConnectButtons />
+            </div>
           </div>
         </div>
       </section>
