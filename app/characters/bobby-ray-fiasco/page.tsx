@@ -7,11 +7,19 @@ import Link from "next/link";
 
 const contents = [
   { href: "#overzicht", label: "Overzicht" },
+  { href: "#verleden", label: "Verleden" },
+  { href: "#aankomst", label: "Aankomst in Meridian" },
   { href: "#familie", label: "Familie" },
-  { href: "#ondernemingen", label: "Bekende ondernemingen" },
-  { href: "#gebeurtenissen", label: "Bekende gebeurtenissen" },
+  { href: "#connecties", label: "Connecties en rivalen" },
+  { href: "#ondernemingen", label: "Ondernemingen en werk" },
   { href: "#geruchten", label: "Geruchten" },
 ];
+
+function displayNames(items: { name: string }[]) {
+  return items.length > 0
+    ? items.map((item) => item.name).join(", ")
+    : "Geen openbaar geregistreerde vermeldingen";
+}
 
 export default function BobbyRayPage() {
   const bobby = characters[0];
@@ -44,44 +52,85 @@ export default function BobbyRayPage() {
             <DossierContents items={contents} />
 
             <DossierSection id="overzicht" title="Overzicht">
-              <p>{bobby.openbareDossier}</p>
+              <p>{bobby.publicProfile}</p>
+            </DossierSection>
+
+            <DossierSection id="verleden" title="Verleden">
+              <div className="space-y-4">
+                {bobby.past.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </DossierSection>
+
+            <DossierSection id="aankomst" title="Aankomst in Meridian">
+              <div className="space-y-4">
+                {bobby.arrivalInMeridian.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </DossierSection>
 
             <DossierSection id="familie" title="Familie">
-              <ul className="space-y-2">
-                {bobby.familie.map((name) => (
-                  <li key={name}>{name}</li>
+              <div className="space-y-4">
+                {bobby.familyStory.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
                 ))}
-              </ul>
+              </div>
             </DossierSection>
 
-            <DossierSection id="ondernemingen" title="Bekende ondernemingen">
-              <ul className="space-y-2">
-                {bobby.ondernemingen.map((business) => (
-                  <li key={business.href}>
-                    <Link
-                      href={business.href}
-                      className="font-semibold text-[#e0b85a] transition hover:text-[#f8fafc]"
-                    >
-                      {business.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <DossierSection id="connecties" title="Connecties en rivalen">
+              <dl className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <dt className="font-semibold text-[#e0b85a]">Zakenpartners</dt>
+                  <dd className="mt-1">{displayNames(bobby.businessPartners)}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-[#e0b85a]">
+                    Bekende connecties
+                  </dt>
+                  <dd className="mt-1">{displayNames(bobby.knownConnections)}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-[#e0b85a]">
+                    Bekende rivalen
+                  </dt>
+                  <dd className="mt-1">{displayNames(bobby.knownRivals)}</dd>
+                </div>
+              </dl>
             </DossierSection>
 
-            <DossierSection id="gebeurtenissen" title="Bekende gebeurtenissen">
-              <ul className="space-y-3">
-                {bobby.gebeurtenissen.map((event) => (
-                  <li key={event} className="border-l border-[#c89b45]/60 pl-4">
-                    {event}
-                  </li>
+            <DossierSection id="ondernemingen" title="Ondernemingen en werk">
+              <div className="space-y-4">
+                {bobby.businessStory.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
                 ))}
-              </ul>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {bobby.businesses.map((business) =>
+                    business.href ? (
+                      <Link
+                        key={business.name}
+                        href={business.href}
+                        className="rounded-md border border-[#c89b45]/45 bg-[#09090b] px-3 py-2 font-semibold text-[#e0b85a] transition hover:border-[#e0b85a] hover:text-[#f8fafc]"
+                      >
+                        {business.name}
+                      </Link>
+                    ) : (
+                      <span key={business.name}>{business.name}</span>
+                    ),
+                  )}
+                </div>
+              </div>
             </DossierSection>
 
             <DossierSection id="geruchten" title="Geruchten">
-              <p className="italic text-[#9ca3af]">{bobby.geruchten}</p>
+              <ul className="space-y-3 italic text-[#9ca3af]">
+                {bobby.rumors.map((rumor) => (
+                  <li key={rumor} className="border-l border-[#c89b45]/60 pl-4">
+                    {rumor}
+                  </li>
+                ))}
+              </ul>
             </DossierSection>
           </div>
 
@@ -93,28 +142,89 @@ export default function BobbyRayPage() {
               imageAlt={bobby.name}
               sections={[
                 {
-                  title: "Dossierinformatie",
+                  title: "Persoonsgegevens",
                   facts: [
-                    { label: "Status", value: bobby.status },
-                    { label: "Beroep", value: bobby.beroep.join(" / ") },
-                    { label: "Woonplaats", value: "Meridian" },
+                    {
+                      label: "Status",
+                      value: (
+                        <span className="font-semibold text-[#e0b85a]">
+                          {bobby.status}
+                        </span>
+                      ),
+                    },
+                    { label: "Alias(es)", value: bobby.aliases.join(", ") },
+                    { label: "Volledige naam", value: bobby.fullName },
+                    { label: "Leeftijd", value: bobby.age },
+                    { label: "Geboortedatum", value: bobby.birthDate },
+                    { label: "Nationaliteit", value: bobby.nationality },
+                    { label: "Woongebied", value: bobby.residentialArea },
+                  ],
+                },
+                {
+                  title: "Uiterlijke kenmerken",
+                  facts: [
+                    { label: "Lengte", value: bobby.height },
+                    { label: "Oogkleur", value: bobby.eyeColor },
+                    { label: "Haarkleur", value: bobby.hairColor },
+                    {
+                      label: "Littekens",
+                      value: bobby.distinguishingFeatures.scars.join(", "),
+                    },
+                    {
+                      label: "Tattoos",
+                      value: bobby.distinguishingFeatures.tattoos.join(", "),
+                    },
+                    {
+                      label: "Kledingstijl",
+                      value:
+                        bobby.distinguishingFeatures.clothingStyle.join(", "),
+                    },
                   ],
                 },
                 {
                   title: "Relaties",
                   facts: [
-                    { label: "Familie", value: bobby.familie.join(", ") },
+                    { label: "Familie", value: displayNames(bobby.family) },
                     {
-                      label: "Onderneming",
+                      label: "Zakenpartners",
+                      value: displayNames(bobby.businessPartners),
+                    },
+                    {
+                      label: "Connecties",
+                      value: displayNames(bobby.knownConnections),
+                    },
+                    {
+                      label: "Rivalen",
+                      value: displayNames(bobby.knownRivals),
+                    },
+                  ],
+                },
+                {
+                  title: "Werk en ondernemingen",
+                  facts: [
+                    {
+                      label: "Ondernemingen",
                       value: (
-                        <Link
-                          href="/businesses/fiasco-ink"
-                          className="font-semibold text-[#e0b85a]"
-                        >
-                          Fiasco Ink
-                        </Link>
+                        <span className="space-y-1">
+                          {bobby.businesses.map((business) =>
+                            business.href ? (
+                              <Link
+                                key={business.name}
+                                href={business.href}
+                                className="block font-semibold text-[#e0b85a]"
+                              >
+                                {business.name}
+                              </Link>
+                            ) : (
+                              <span key={business.name} className="block">
+                                {business.name}
+                              </span>
+                            ),
+                          )}
+                        </span>
                       ),
                     },
+                    { label: "Werk", value: bobby.work.join(", ") },
                   ],
                 },
               ]}

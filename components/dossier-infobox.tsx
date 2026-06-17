@@ -52,10 +52,10 @@ export default function DossierInfobox({
               {section.facts.map((fact) => (
                 <div
                   key={fact.label}
-                  className="grid grid-cols-[42%_1fr] gap-3 border-b border-[#1f2937] px-4 py-3 text-sm last:border-b-0"
+                  className="grid grid-cols-[42%_minmax(0,1fr)] gap-3 border-b border-[#1f2937] px-4 py-3 text-sm last:border-b-0"
                 >
                   <dt className="font-semibold text-[#f8fafc]">{fact.label}</dt>
-                  <dd className="border-l border-[#c89b45]/60 pl-3 text-[#d1d5db]">
+                  <dd className="min-w-0 break-words border-l border-[#c89b45]/60 pl-3 text-[#d1d5db]">
                     {fact.value}
                   </dd>
                 </div>
