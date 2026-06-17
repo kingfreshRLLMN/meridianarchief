@@ -41,7 +41,7 @@ export default function Home() {
             alt="Meridian stadsbanner"
             fill
             priority
-            className="object-cover opacity-55"
+            className="object-cover object-center opacity-55"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/35 via-[#020617]/68 to-[#020617]/92" />
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
           <ArchiveSearchBar items={searchItems} />
         </div>
 
-        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-4 pb-6 pt-24 md:px-8 md:pt-28">
+        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[7vh] pt-24 md:px-8 md:pb-[10vh] md:pt-28">
           <div className="mx-auto w-full max-w-5xl text-center">
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Image
