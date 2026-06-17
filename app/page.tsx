@@ -36,12 +36,11 @@ export default function Home() {
           </div>
 
           <p className="max-w-3xl text-lg leading-8 text-[#d1d5db] md:text-xl">
-            Het officiële publieke archief van Meridian: inwonersdossiers,
-            ondernemingsregisters en chronologische verslagen van gebeurtenissen
-            die de stad vormgeven.
+            Het publieke stadsarchief van Meridian: inwonersdossiers,
+            ondernemingsregisters en openbare informatie die de stad vormgeeft.
           </p>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
             <ArchiveCard
               href="/businesses"
               eyebrow="Register"
@@ -55,13 +54,6 @@ export default function Home() {
               title="Inwoners"
               description="Publieke profielen van bekende inwoners, met feiten en zorgvuldig gemarkeerde geruchten."
               meta="RP-safe informatie"
-            />
-            <ArchiveCard
-              href="/timeline"
-              eyebrow="Chronologie"
-              title="Tijdlijn"
-              description="Een rustig overzicht van belangrijke momenten binnen de publieke lore van Meridian."
-              meta="Geen metagame"
             />
           </div>
         </div>

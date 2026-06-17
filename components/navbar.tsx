@@ -4,7 +4,6 @@ import Image from "next/image";
 const navItems = [
   { href: "/businesses", label: "Bedrijven" },
   { href: "/characters", label: "Inwoners" },
-  { href: "/timeline", label: "Tijdlijn" },
 ];
 
 export default function Navbar() {
