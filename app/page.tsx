@@ -1,4 +1,6 @@
+import ArchiveSearchBar from "@/components/archive-search-bar";
 import SocialConnectButtons from "@/components/social-connect-buttons";
+import { searchItems } from "@/data/search-items";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,6 +34,10 @@ export default function Home() {
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[7vh] pt-24 md:px-8 md:pb-[10vh] md:pt-28">
           <div className="mx-auto w-full max-w-5xl text-center">
+            <div className="mx-auto mb-8 max-w-2xl">
+              <ArchiveSearchBar items={searchItems} />
+            </div>
+
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Image
                 src="/logo.png"

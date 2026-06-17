@@ -1,25 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import ArchiveSearchBar from "@/components/archive-search-bar";
-import { businesses } from "@/data/businesses";
-import { characters } from "@/data/characters";
+import NavbarSearch from "@/components/navbar-search";
 
 const navItems = [
   { href: "/businesses", label: "Bedrijven" },
   { href: "/characters", label: "Inwoners" },
-];
-
-const searchItems = [
-  ...businesses.map((business) => ({
-    name: business.name,
-    href: `/businesses/${business.slug}`,
-    type: "Bedrijf" as const,
-  })),
-  ...characters.map((character) => ({
-    name: character.name,
-    href: `/characters/${character.slug}`,
-    type: "Inwoner" as const,
-  })),
 ];
 
 export default function Navbar() {
@@ -47,7 +32,7 @@ export default function Navbar() {
         </Link>
 
         <div className="w-full lg:justify-self-center">
-          <ArchiveSearchBar items={searchItems} compact />
+          <NavbarSearch />
         </div>
 
         <div className="flex flex-wrap gap-2 text-sm font-medium text-[#f8fafc] lg:justify-self-end">
