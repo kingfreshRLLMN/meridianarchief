@@ -83,17 +83,23 @@ export const characters: Character[] = [
     ],
     work: ["Fiasco Ink / Eigenaar"],
     past: [
-      "Over de periode vóór zijn komst naar Meridian is weinig verifieerbare informatie opgenomen in het publieke archief. Bobby heeft zijn voorgeschiedenis niet uitgebreid openbaar gemaakt en officiële documenten geven geen volledig beeld van zijn eerdere woonplaatsen of werkzaamheden.",
-      "In informele gesprekken wordt een mogelijke achtergrond in de vechtsport genoemd. Daarvoor ontbreekt binnen het publieke stadsarchief echter voldoende bevestiging. Deze informatie wordt daarom niet als vastgesteld onderdeel van zijn levensloop beschouwd.",
+      "Bobby Ray Fiasco groeide op in een harde omgeving waar loyaliteit, overleven en familie centraal stonden. Samen met zijn oudere broer Hugo Fiasco bracht hij zijn jeugd door tussen straatraces, het sleutelen aan voertuigen en kleine overvallen om rond te komen.",
+      "Hun vader kampte jarenlang met alcoholproblemen en overleed uiteindelijk aan zijn verslaving. Hun moeder deed alles wat binnen haar vermogen lag om het gezin overeind te houden, maar overleed jaren later toen Bobby volwassen was. Het verlies van beide ouders maakte de band tussen de broers alleen maar sterker.",
+      "Al op jonge leeftijd bleek Bobby over uitzonderlijk talent en discipline binnen de vechtsport te beschikken. Op zijn negentiende begon hij aan een professionele bokscarrière waarin hij snel naam maakte. Zijn agressieve stijl, knock-outkracht en onbreekbare mentaliteit leverden hem een ongeslagen status en meerdere titels in verschillende gewichtsklassen op.",
+      "Tijdens zijn carrière verbleef Bobby een periode in het buitenland, waar hij verder bouwde aan zijn reputatie en vermogen. Ondanks de afstand bleef de band met zijn roots en zijn broer bestaan. Uiteindelijk besloot hij zijn focus te verleggen van de vechtsport naar het ondernemerschap.",
     ],
     arrivalInMeridian: [
-      "Na zijn verschijning in Meridian begon Bobby zichtbaar te werken aan een eigen positie binnen de stad. Zijn publieke activiteiten kregen vooral vorm rond ondernemerschap en de ontwikkeling van een creatieve werkplek.",
-      "De registratie en opening van Fiasco Ink vormden het duidelijkste publieke keerpunt in zijn Meridian-periode. Sindsdien is zijn naam nauw verbonden geraakt met de zaak en met de klanten en contacten die daar over de vloer komen.",
-      "Zijn huidige reputatie berust voornamelijk op zijn aanwezigheid als ondernemer. Verdere persoonlijke ontwikkelingen worden alleen aan dit dossier toegevoegd wanneer ze publiek bekend en voldoende verifieerbaar zijn.",
+      "Bij zijn aankomst in Meridian gebruikte Bobby de discipline, vastberadenheid en ervaring uit zijn eerdere leven om een nieuwe positie binnen de stad op te bouwen. Hij koos ervoor zijn aandacht te richten op legale ondernemingen en een toekomst waarin zijn naam niet alleen met de straat of de vechtsport verbonden zou zijn.",
+      "Opvallend is dat Bobby alleen in Meridian verscheen. Zijn oudere broer Hugo, met wie hij jarenlang vrijwel onafscheidelijk was, is voor zover publiek bekend nog niet in de stad gespot. Waarom Bobby zonder hem naar Meridian kwam en wat er aan die keuze voorafging, is niet openbaar bekend.",
+      "De oprichting en opening van Fiasco Ink vormden een belangrijk keerpunt. Vanuit de zaak bouwde Bobby verder aan zijn reputatie als ondernemer en raakte zijn naam verbonden aan creatieve dienstverlening, custom tattoo designs en een groeiend netwerk binnen Meridian.",
+      "Binnen Meridian staat Bobby bekend als een gerespecteerde ondernemer, eigenaar van Fiasco Ink en een man met een sterke reputatie op straat. Zijn verleden vormt nog altijd een belangrijk onderdeel van hoe anderen hem zien, maar zijn huidige publieke leven draait voornamelijk om familie, ondernemerschap en het verder opbouwen van de naam Fiasco.",
     ],
     familyStory: [
-      "Hugo Fiasco staat in het openbare dossier vermeld als familie van Bobby Ray Fiasco. Over de precieze aard en geschiedenis van hun familieband is weinig publiek vastgelegd.",
-      "Andere familieleden of aanvullende familieverbanden zijn momenteel niet openbaar geregistreerd.",
+      "Hugo Fiasco is de oudere broer van Bobby Ray Fiasco en speelde vanaf het begin een grote rol in hun gezamenlijke levenspad. Waar Bobby bekendstond om zijn fysieke kracht en discipline, ontwikkelde Hugo een reputatie vanwege zijn strategische inzicht, scherpe blik en vermogen om situaties vooruit te lezen.",
+      "Vanaf jonge leeftijd was Hugo vaak degene die plannen maakte en kansen herkende die anderen misten. Samen met Bobby bouwde hij al vroeg aan hun naam, eerst op straat en later in de zakelijke wereld. Na jaren van opbouwen, verliezen en opnieuw beginnen bleef Hugo de stabiele factor binnen de familie.",
+      "De band tussen Bobby en Hugo is gebouwd op verlies, strijd en loyaliteit. Vanaf hun jeugd stonden zij samen tegenover de wereld. Armoede, het verlies van hun ouders, successen, tegenslagen en wederopbouw vormden hun relatie tot een vrijwel onbreekbare broederschap.",
+      "Binnen Meridian worden de Fiasco-broers gezien als mannen die hun woord houden, hun familie beschermen en hun naam met trots dragen. Hugo staat bekend als een invloedrijke ondernemer met sterke connecties en een scherpe zakelijke mentaliteit. Hun broederschap symboliseert voor velen discipline, loyaliteit en de kracht om opnieuw op te bouwen wanneer alles verloren lijkt.",
+      "Toch is Hugo tot op heden niet bevestigd gezien binnen Meridian. Dat Bobby wel in de stad opdook terwijl zijn broer afwezig bleef, vormt een van de grotere open vragen rond de familie. Er is geen publieke verklaring voor hun tijdelijke scheiding en het is onbekend of Hugo van plan is Bobby naar Meridian te volgen.",
     ],
     connectionStory: [
       [
@@ -129,7 +135,7 @@ export const characters: Character[] = [
       ],
     ],
     rumors: [
-      "Er gaan verhalen rond over een verleden in de vechtsportwereld, maar dit is niet officieel bevestigd in het publieke archief.",
+      "Hoewel Bobby's bokscarrière bekend is, blijven veel verhalen over wat hij tijdens zijn jaren in het buitenland heeft meegemaakt onbevestigd.",
     ],
     image: "/characters/bobby-ray.png",
   },
