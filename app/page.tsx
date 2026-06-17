@@ -92,7 +92,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10 flex flex-col items-center">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9ca3af]">
                 Verbind met Meridian
               </p>

@@ -15,7 +15,7 @@ const socialLinks = [
 
 export default function SocialConnectButtons() {
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap items-center justify-center gap-4">
       {socialLinks.map((link) => (
         <a
           key={link.name}
