@@ -5,6 +5,12 @@ export type CharacterLink = {
   href?: string;
 };
 
+export type InfluencerLink = {
+  platform: string;
+  label: string;
+  href: string;
+};
+
 export type NarrativePart =
   | {
       text: string;
@@ -47,6 +53,7 @@ export type Character = {
   connectionStory: NarrativeParagraph[];
   businessStory: NarrativeParagraph[];
   rumors: string[];
+  influencerLinks?: InfluencerLink[];
   image: string;
 };
 
@@ -138,6 +145,13 @@ export const characters: Character[] = [
     ],
     rumors: [
       "Hoewel Bobby's bokscarrière bekend is, blijven veel verhalen over wat hij tijdens zijn jaren in het buitenland heeft meegemaakt onbevestigd.",
+    ],
+    influencerLinks: [
+      {
+        platform: "Twitch",
+        label: "KingFreshTTV",
+        href: "https://www.twitch.tv/kingfreshttv",
+      },
     ],
     image: "/characters/bobby-ray.png",
   },

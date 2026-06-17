@@ -111,6 +111,64 @@ export default function BobbyRayPage() {
               subtitle="Publiek inwonersprofiel"
               image={bobby.image}
               imageAlt={bobby.name}
+              footer={
+                bobby.influencerLinks?.length ? (
+                  <section>
+                    <h3 className="border-b border-[#c89b45]/35 bg-[#111827] px-4 py-2 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[#e0b85a]">
+                      Influencer
+                    </h3>
+                    <div className="space-y-2 p-4">
+                      {bobby.influencerLinks.map((social) => (
+                        <a
+                          key={social.href}
+                          href={social.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group flex items-center justify-between gap-3 rounded-md border border-[#c89b45]/40 bg-[#0b1120] px-4 py-3 transition hover:border-[#e0b85a] hover:bg-[#111827] hover:shadow-[0_0_22px_rgba(200,155,69,0.16)]"
+                        >
+                          <span className="flex min-w-0 items-center gap-3">
+                            <svg
+                              aria-hidden="true"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="size-5 shrink-0 text-[#c89b45] transition group-hover:text-[#e0b85a]"
+                            >
+                              <rect x="3" y="5" width="18" height="14" rx="2" />
+                              <path d="m10 9 5 3-5 3Z" />
+                            </svg>
+                            <span className="min-w-0">
+                              <span className="block text-xs uppercase tracking-[0.16em] text-[#9ca3af]">
+                                {social.platform}
+                              </span>
+                              <span className="block truncate font-semibold text-[#c89b45] transition group-hover:text-[#e0b85a]">
+                                {social.label}
+                              </span>
+                            </span>
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="size-4 shrink-0 text-[#9ca3af] transition group-hover:text-[#e0b85a]"
+                          >
+                            <path d="M15 3h6v6" />
+                            <path d="M10 14 21 3" />
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          </svg>
+                        </a>
+                      ))}
+                    </div>
+                  </section>
+                ) : undefined
+              }
               sections={[
                 {
                   title: "Persoonsgegevens",

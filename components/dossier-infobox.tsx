@@ -10,6 +10,7 @@ type DossierInfoboxProps = {
   subtitle: string;
   image: string;
   imageAlt: string;
+  footer?: React.ReactNode;
   sections: {
     title: string;
     facts: DossierFact[];
@@ -21,6 +22,7 @@ export default function DossierInfobox({
   subtitle,
   image,
   imageAlt,
+  footer,
   sections,
 }: DossierInfoboxProps) {
   return (
@@ -64,6 +66,10 @@ export default function DossierInfobox({
           </section>
         ))}
       </div>
+
+      {footer ? (
+        <div className="border-t border-[#c89b45]/35">{footer}</div>
+      ) : null}
     </aside>
   );
 }
