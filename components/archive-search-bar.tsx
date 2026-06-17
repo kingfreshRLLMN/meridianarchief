@@ -11,9 +11,13 @@ type SearchItem = {
 
 type ArchiveSearchBarProps = {
   items: SearchItem[];
+  compact?: boolean;
 };
 
-export default function ArchiveSearchBar({ items }: ArchiveSearchBarProps) {
+export default function ArchiveSearchBar({
+  items,
+  compact = false,
+}: ArchiveSearchBarProps) {
   const [query, setQuery] = useState("");
 
   const results = useMemo(() => {
@@ -47,7 +51,9 @@ export default function ArchiveSearchBar({ items }: ArchiveSearchBarProps) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Zoek inwoner of bedrijf..."
-          className="h-14 w-full bg-transparent pl-24 pr-4 text-sm font-medium text-[#f8fafc] outline-none placeholder:text-[#6b7280]"
+          className={`w-full bg-transparent pl-24 pr-4 text-sm font-medium text-[#f8fafc] outline-none placeholder:text-[#6b7280] ${
+            compact ? "h-11" : "h-14"
+          }`}
         />
       </div>
 

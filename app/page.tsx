@@ -1,7 +1,4 @@
-import ArchiveSearchBar from "@/components/archive-search-bar";
 import SocialConnectButtons from "@/components/social-connect-buttons";
-import { businesses } from "@/data/businesses";
-import { characters } from "@/data/characters";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,19 +15,6 @@ const portals = [
   },
 ];
 
-const searchItems = [
-  ...businesses.map((business) => ({
-    name: business.name,
-    href: `/businesses/${business.slug}`,
-    type: "Bedrijf" as const,
-  })),
-  ...characters.map((character) => ({
-    name: character.name,
-    href: `/characters/${character.slug}`,
-    type: "Inwoner" as const,
-  })),
-];
-
 export default function Home() {
   return (
     <main className="h-[calc(100svh-116px)] overflow-hidden bg-[#020617] text-[#f8fafc] sm:h-[calc(100svh-73px)]">
@@ -44,10 +28,6 @@ export default function Home() {
             className="object-cover object-center opacity-55"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/35 via-[#020617]/68 to-[#020617]/92" />
-        </div>
-
-        <div className="absolute left-1/2 top-5 z-20 w-full max-w-2xl -translate-x-1/2 px-4">
-          <ArchiveSearchBar items={searchItems} />
         </div>
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-[7vh] pt-24 md:px-8 md:pb-[10vh] md:pt-28">

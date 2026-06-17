@@ -1,15 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
+import ArchiveSearchBar from "@/components/archive-search-bar";
+import { businesses } from "@/data/businesses";
+import { characters } from "@/data/characters";
 
 const navItems = [
   { href: "/businesses", label: "Bedrijven" },
   { href: "/characters", label: "Inwoners" },
 ];
 
+const searchItems = [
+  ...businesses.map((business) => ({
+    name: business.name,
+    href: `/businesses/${business.slug}`,
+    type: "Bedrijf" as const,
+  })),
+  ...characters.map((character) => ({
+    name: character.name,
+    href: `/characters/${character.slug}`,
+    type: "Inwoner" as const,
+  })),
+];
+
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-[#1f2937] bg-[#020617]/92 px-4 py-3 text-[#f8fafc] backdrop-blur md:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-[auto_minmax(280px,520px)_auto] lg:items-center">
         <Link href="/" className="flex items-center gap-3">
           <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]">
             <Image
@@ -30,7 +46,11 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="flex flex-wrap gap-2 text-sm font-medium text-[#f8fafc]">
+        <div className="w-full lg:justify-self-center">
+          <ArchiveSearchBar items={searchItems} compact />
+        </div>
+
+        <div className="flex flex-wrap gap-2 text-sm font-medium text-[#f8fafc] lg:justify-self-end">
           {navItems.map((item) => (
             <Link
               key={item.href}
