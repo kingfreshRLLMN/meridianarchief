@@ -6,6 +6,7 @@ import FixedDossierSidebar from "@/components/fixed-dossier-sidebar";
 import RecognizedName from "@/components/recognized-name";
 import ShareDossierButton from "@/components/share-dossier-button";
 import { characters } from "@/data/characters";
+import Image from "next/image";
 import Link from "next/link";
 
 const contents = [
@@ -127,19 +128,13 @@ export default function BobbyRayPage() {
                           className="group flex items-center justify-between gap-3 rounded-md border border-[#c89b45]/40 bg-[#0b1120] px-4 py-3 transition hover:border-[#e0b85a] hover:bg-[#111827] hover:shadow-[0_0_22px_rgba(200,155,69,0.16)]"
                         >
                           <span className="flex min-w-0 items-center gap-3">
-                            <svg
-                              aria-hidden="true"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="size-5 shrink-0 text-[#c89b45] transition group-hover:text-[#e0b85a]"
-                            >
-                              <rect x="3" y="5" width="18" height="14" rx="2" />
-                              <path d="m10 9 5 3-5 3Z" />
-                            </svg>
+                            <Image
+                              src="/twitch.png"
+                              alt="Twitch logo"
+                              width={48}
+                              height={48}
+                              className="size-8 shrink-0 object-contain drop-shadow-[0_0_7px_rgba(200,155,69,0.4)] transition duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(224,184,90,0.7)]"
+                            />
                             <span className="min-w-0">
                               <span className="block text-xs uppercase tracking-[0.16em] text-[#9ca3af]">
                                 {social.platform}
