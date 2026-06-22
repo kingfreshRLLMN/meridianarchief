@@ -3,6 +3,7 @@ import Image from "next/image";
 import NavbarSearch from "@/components/navbar-search";
 
 const navItems = [
+  { href: "/stadsregels", label: "Stadsregels" },
   { href: "/wetboek", label: "Wetboek" },
   { href: "/businesses", label: "Bedrijven" },
   { href: "/characters", label: "Inwoners" },
