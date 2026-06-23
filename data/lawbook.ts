@@ -19,7 +19,12 @@ export const lawbookCategories: LawbookCategory[] = [
     published: true,
     href: "/wetboek/strafrecht",
   },
-  { title: "Opiumwet", slug: "opiumwet", published: false, href: "#" },
+  {
+    title: "Opiumwet",
+    slug: "opiumwet",
+    published: true,
+    href: "/wetboek/opiumwet",
+  },
   {
     title: "Vermogensdelicten",
     slug: "vermogensdelicten",
