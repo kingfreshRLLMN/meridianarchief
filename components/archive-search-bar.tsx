@@ -6,7 +6,8 @@ import { useMemo, useState } from "react";
 type SearchItem = {
   name: string;
   href: string;
-  type: "Inwoner" | "Bedrijf";
+  type: "Inwoner" | "Bedrijf" | "Wetboek";
+  keywords?: string;
 };
 
 type ArchiveSearchBarProps = {
@@ -28,9 +29,15 @@ export default function ArchiveSearchBar({
     }
 
     return items
-      .filter((item) => item.name.toLowerCase().includes(normalizedQuery))
+      .filter((item) =>
+        [item.name, item.type, item.keywords]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase()
+          .includes(normalizedQuery),
+      )
       .sort((a, b) => a.name.localeCompare(b.name, "nl"))
-      .slice(0, 5);
+      .slice(0, 8);
   }, [items, query]);
 
   return (
@@ -50,7 +57,7 @@ export default function ArchiveSearchBar({
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Zoek inwoner of bedrijf..."
+          placeholder="Zoek inwoner, bedrijf of in het wetboek..."
           className={`w-full bg-transparent pl-24 pr-4 text-sm font-medium text-[#f8fafc] outline-none placeholder:text-[#6b7280] ${
             compact ? "h-11" : "h-14"
           }`}
