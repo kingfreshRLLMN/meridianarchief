@@ -15,6 +15,11 @@ const portals = [
     eyebrow: "Dossiers",
     title: "Inwoners",
   },
+  {
+    href: "/wetboek",
+    eyebrow: "Wetboek",
+    title: "Regels",
+  },
 ];
 
 export default function Home() {
@@ -61,17 +66,17 @@ export default function Home() {
               ondernemingsregisters en openbare informatie die de stad vormgeeft.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
               {portals.map((portal) => (
                 <Link
                   key={portal.href}
                   href={portal.href}
-                  className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-6 shadow-[0_0_30px_rgba(200,155,69,0.10)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_42px_rgba(200,155,69,0.24)]"
+                  className="group rounded-lg border border-[#1f2937] bg-[#0b1120]/92 p-5 shadow-[0_0_30px_rgba(200,155,69,0.10)] transition hover:border-[#c89b45] hover:bg-[#111827] hover:shadow-[0_0_42px_rgba(200,155,69,0.24)] md:p-6"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e0b85a]">
                     {portal.eyebrow}
                   </p>
-                  <h2 className="mt-4 text-3xl font-semibold text-[#f8fafc] md:text-4xl">
+                  <h2 className="mt-4 text-3xl font-semibold text-[#f8fafc] lg:text-4xl">
                     {portal.title}
                   </h2>
                 </Link>
