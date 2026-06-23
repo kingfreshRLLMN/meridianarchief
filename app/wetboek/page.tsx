@@ -1,7 +1,7 @@
 import LawbookArticle from "@/components/lawbook-article";
+import LawbookSidebar from "@/components/lawbook-sidebar";
 import {
   generalArticleLinks,
-  lawbookCategories,
 } from "@/data/lawbook";
 import type { Metadata } from "next";
 
@@ -30,39 +30,7 @@ export default function LawbookPage() {
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[260px_minmax(0,1fr)]">
           <aside className="self-start lg:sticky lg:top-24">
-            <nav
-              aria-label="Wetboekcategorieën"
-              className="overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]"
-            >
-              <div className="border-b border-[#1f2937] px-4 py-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e0b85a]">
-                  Wetboek
-                </p>
-              </div>
-
-              <ul className="py-2">
-                {lawbookCategories.map((category) => (
-                  <li key={category.slug}>
-                    {category.published ? (
-                      <a
-                        href={`#${category.slug}`}
-                        className="flex items-center justify-between border-l-2 border-[#c89b45] bg-[#0b1120] px-4 py-3 text-sm font-semibold text-[#e0b85a]"
-                      >
-                        <span>{category.title}</span>
-                        <span aria-hidden="true">›</span>
-                      </a>
-                    ) : (
-                      <span className="flex items-center justify-between border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#9ca3af]">
-                        <span>{category.title}</span>
-                        <span className="text-[10px] uppercase tracking-[0.12em] text-[#4b5563]">
-                          Volgt
-                        </span>
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <LawbookSidebar activeSlug="algemeen" />
 
             <nav
               aria-label="Artikelen binnen algemeen"

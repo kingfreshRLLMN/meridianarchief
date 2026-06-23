@@ -2,24 +2,42 @@ export type LawbookCategory = {
   title: string;
   slug: string;
   published: boolean;
+  href: string;
 };
 
 export const lawbookCategories: LawbookCategory[] = [
-  { title: "Algemeen", slug: "algemeen", published: true },
-  { title: "Verkeersdelicten", slug: "verkeersdelicten", published: false },
-  { title: "Strafrecht", slug: "strafrecht", published: false },
-  { title: "Opiumwet", slug: "opiumwet", published: false },
-  { title: "Vermogensdelicten", slug: "vermogensdelicten", published: false },
-  { title: "Geweldsdelicten", slug: "geweldsdelicten", published: false },
+  { title: "Algemeen", slug: "algemeen", published: true, href: "/wetboek" },
+  {
+    title: "Verkeersdelicten",
+    slug: "verkeersdelicten",
+    published: true,
+    href: "/wetboek/verkeersdelicten",
+  },
+  { title: "Strafrecht", slug: "strafrecht", published: false, href: "#" },
+  { title: "Opiumwet", slug: "opiumwet", published: false, href: "#" },
+  {
+    title: "Vermogensdelicten",
+    slug: "vermogensdelicten",
+    published: false,
+    href: "#",
+  },
+  {
+    title: "Geweldsdelicten",
+    slug: "geweldsdelicten",
+    published: false,
+    href: "#",
+  },
   {
     title: "Wet Wapens en Munitie",
     slug: "wet-wapens-en-munitie",
     published: false,
+    href: "#",
   },
   {
     title: "Rijontzeggingen & Inbeslagnames",
     slug: "rijontzeggingen-en-inbeslagnames",
     published: false,
+    href: "#",
   },
 ];
 
