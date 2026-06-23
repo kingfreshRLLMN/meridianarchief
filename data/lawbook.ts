@@ -46,8 +46,8 @@ export const lawbookCategories: LawbookCategory[] = [
   {
     title: "Rijontzeggingen & Inbeslagnames",
     slug: "rijontzeggingen-en-inbeslagnames",
-    published: false,
-    href: "#",
+    published: true,
+    href: "/wetboek/rijontzeggingen-en-inbeslagnames",
   },
 ];
 
