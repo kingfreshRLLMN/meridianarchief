@@ -273,6 +273,224 @@ body {
   }
 }
 
+.business-register-stage,
+.character-dossier-stage {
+  position: relative;
+  width: min(340px, 72vw);
+  height: 190px;
+  display: grid;
+  place-items: center;
+  animation: archive-stage-in 620ms ease forwards;
+}
+
+.business-register-stage::after,
+.character-dossier-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 10% 6px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+  filter: blur(14px);
+}
+
+.business-register-card,
+.character-dossier-card {
+  position: relative;
+  width: min(300px, 68vw);
+  height: 152px;
+  overflow: hidden;
+  border: 1px solid rgba(224, 184, 90, 0.42);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(224, 184, 90, 0.16), transparent 38%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(9, 9, 11, 0.98));
+  box-shadow:
+    0 0 28px rgba(200, 155, 69, 0.24),
+    inset 0 0 24px rgba(200, 155, 69, 0.08);
+}
+
+.business-register-card {
+  transform-origin: center bottom;
+  animation: business-register-open 2.1s ease forwards;
+}
+
+.business-register-label {
+  position: absolute;
+  left: 22px;
+  top: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e0b85a;
+}
+
+.business-register-line,
+.character-dossier-line {
+  position: absolute;
+  left: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.22);
+}
+
+.business-register-line-one {
+  top: 58px;
+  width: 68%;
+}
+
+.business-register-line-two {
+  top: 82px;
+  width: 54%;
+}
+
+.business-register-line-three {
+  top: 106px;
+  width: 72%;
+}
+
+.business-register-stamp {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  rotate: -9deg;
+  border: 1px solid rgba(224, 184, 90, 0.75);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #e0b85a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(1.24);
+  animation: business-stamp-in 2.1s ease forwards;
+}
+
+.character-dossier-card {
+  animation: character-card-focus 2.1s ease forwards;
+}
+
+.character-dossier-photo {
+  position: absolute;
+  left: 22px;
+  top: 24px;
+  width: 70px;
+  height: 88px;
+  border: 1px solid rgba(224, 184, 90, 0.4);
+  border-radius: 7px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(224, 184, 90, 0.48) 0 15%, transparent 16%),
+    linear-gradient(180deg, rgba(200, 155, 69, 0.22), rgba(15, 23, 42, 0.92));
+}
+
+.character-dossier-line {
+  left: 116px;
+}
+
+.character-dossier-line-one {
+  top: 34px;
+  width: 52%;
+}
+
+.character-dossier-line-two {
+  top: 64px;
+  width: 42%;
+}
+
+.character-dossier-line-three {
+  top: 94px;
+  width: 58%;
+}
+
+.character-dossier-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(224, 184, 90, 0.05),
+    rgba(224, 184, 90, 0.56),
+    rgba(224, 184, 90, 0.05),
+    transparent
+  );
+  transform: translateY(-100%);
+  animation: character-scan-line 2.1s ease-in-out forwards;
+}
+
+@keyframes archive-stage-in {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes business-register-open {
+  0% {
+    transform: rotateX(18deg) translateY(10px);
+  }
+
+  55% {
+    transform: rotateX(0deg) translateY(0);
+  }
+
+  100% {
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes business-stamp-in {
+  0%,
+  46% {
+    opacity: 0;
+    transform: scale(1.24);
+  }
+
+  58% {
+    opacity: 1;
+    transform: scale(0.94);
+  }
+
+  72%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes character-card-focus {
+  0% {
+    transform: scale(0.96);
+    filter: blur(1px);
+  }
+
+  40%,
+  100% {
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes character-scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  72% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 @keyframes book-left-open {
   0% {
     transform: rotateY(0deg);

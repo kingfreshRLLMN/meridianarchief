@@ -1,19 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+type PortalTransition = "business" | "character" | "book";
 
 const portals = [
   {
     href: "/businesses",
     eyebrow: "Register",
     title: "Bedrijven",
+    transition: "business",
   },
   {
     href: "/characters",
     eyebrow: "Dossiers",
     title: "Inwoners",
+    transition: "character",
   },
   {
     href: "/wetboek",
@@ -28,17 +31,18 @@ const portalClass =
 
 export default function HomePortalCards() {
   const router = useRouter();
-  const [isOpeningLawbook, setIsOpeningLawbook] = useState(false);
+  const [activeTransition, setActiveTransition] =
+    useState<PortalTransition | null>(null);
 
-  const openLawbook = () => {
-    if (isOpeningLawbook) {
+  const openPortal = (href: string, transition: PortalTransition) => {
+    if (activeTransition) {
       return;
     }
 
-    setIsOpeningLawbook(true);
+    setActiveTransition(transition);
     window.setTimeout(() => {
-      router.push("/wetboek");
-    }, 4000);
+      router.push(href);
+    }, transition === "book" ? 4000 : 2400);
   };
 
   return (
@@ -56,48 +60,97 @@ export default function HomePortalCards() {
             </>
           );
 
-          if (portal.transition === "book") {
-            return (
-              <button
-                key={portal.href}
-                type="button"
-                onClick={openLawbook}
-                className={`${portalClass} cursor-pointer`}
-              >
-                {content}
-              </button>
-            );
-          }
-
           return (
-            <Link key={portal.href} href={portal.href} className={portalClass}>
+            <button
+              key={portal.href}
+              type="button"
+              onClick={() =>
+                openPortal(portal.href, portal.transition as PortalTransition)
+              }
+              className={`${portalClass} cursor-pointer`}
+            >
               {content}
-            </Link>
+            </button>
           );
         })}
       </div>
 
-      {isOpeningLawbook ? (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#020617]/92 backdrop-blur-md"
-          aria-live="polite"
-          aria-label="Wetboek wordt geopend"
-        >
-          <div className="book-open-stage">
-            <div className="book-open-shadow" />
-            <div className="book-open-cover book-open-cover-left" />
-            <div className="book-open-cover book-open-cover-right" />
-            <div className="book-open-pages">
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <p className="absolute mt-48 text-xs font-semibold uppercase tracking-[0.28em] text-[#e0b85a]">
-            Wetboek openen
-          </p>
-        </div>
-      ) : null}
+      <PortalTransitionOverlay transition={activeTransition} />
     </>
+  );
+}
+
+function PortalTransitionOverlay({
+  transition,
+}: {
+  transition: PortalTransition | null;
+}) {
+  if (!transition) {
+    return null;
+  }
+
+  const label =
+    transition === "business"
+      ? "Register openen"
+      : transition === "character"
+        ? "Dossier scannen"
+        : "Wetboek openen";
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#020617]/92 backdrop-blur-md"
+      aria-live="polite"
+      aria-label={label}
+    >
+      {transition === "business" ? <BusinessRegisterTransition /> : null}
+      {transition === "character" ? <CharacterDossierTransition /> : null}
+      {transition === "book" ? <LawbookTransition /> : null}
+      <p className="absolute mt-48 text-xs font-semibold uppercase tracking-[0.28em] text-[#e0b85a]">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function BusinessRegisterTransition() {
+  return (
+    <div className="business-register-stage">
+      <div className="business-register-card">
+        <span className="business-register-label">Register</span>
+        <span className="business-register-line business-register-line-one" />
+        <span className="business-register-line business-register-line-two" />
+        <span className="business-register-line business-register-line-three" />
+        <span className="business-register-stamp">Goedgekeurd</span>
+      </div>
+    </div>
+  );
+}
+
+function CharacterDossierTransition() {
+  return (
+    <div className="character-dossier-stage">
+      <div className="character-dossier-card">
+        <span className="character-dossier-photo" />
+        <span className="character-dossier-line character-dossier-line-one" />
+        <span className="character-dossier-line character-dossier-line-two" />
+        <span className="character-dossier-line character-dossier-line-three" />
+        <span className="character-dossier-scan" />
+      </div>
+    </div>
+  );
+}
+
+function LawbookTransition() {
+  return (
+    <div className="book-open-stage">
+      <div className="book-open-shadow" />
+      <div className="book-open-cover book-open-cover-left" />
+      <div className="book-open-cover book-open-cover-right" />
+      <div className="book-open-pages">
+        <span />
+        <span />
+        <span />
+      </div>
+    </div>
   );
 }
