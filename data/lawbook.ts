@@ -28,8 +28,8 @@ export const lawbookCategories: LawbookCategory[] = [
   {
     title: "Vermogensdelicten",
     slug: "vermogensdelicten",
-    published: false,
-    href: "#",
+    published: true,
+    href: "/wetboek/vermogensdelicten",
   },
   {
     title: "Geweldsdelicten",
