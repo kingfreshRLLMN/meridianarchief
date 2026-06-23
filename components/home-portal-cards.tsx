@@ -38,7 +38,7 @@ export default function HomePortalCards() {
     setIsOpeningLawbook(true);
     window.setTimeout(() => {
       router.push("/wetboek");
-    }, 760);
+    }, 4000);
   };
 
   return (
