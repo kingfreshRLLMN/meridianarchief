@@ -15,11 +15,11 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[#1f2937] bg-[#09090b]">
             <Image
-              src="/meridian-mark.png"
+              src="/navbar-mark.png"
               alt="Meridian beeldmerk"
               width={36}
               height={36}
-              className="h-9 w-9 object-contain drop-shadow-[0_0_7px_rgba(200,155,69,0.34)]"
+              className="h-10 w-10 object-contain p-0.5 drop-shadow-[0_0_7px_rgba(200,155,69,0.34)]"
             />
           </span>
           <span>
