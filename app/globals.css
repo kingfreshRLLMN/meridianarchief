@@ -225,14 +225,14 @@ body {
   left: 0;
   border-radius: 10px 4px 4px 10px;
   transform-origin: right center;
-  animation: book-left-open 3.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: book-left-open 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .book-open-cover-right {
   right: 0;
   border-radius: 4px 10px 10px 4px;
   transform-origin: left center;
-  animation: book-right-open 3.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: book-right-open 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .book-open-pages {
@@ -241,7 +241,7 @@ body {
   border-color: rgba(248, 250, 252, 0.12);
   background: rgba(248, 250, 252, 0.08);
   transform: translateX(-50%);
-  animation: book-pages-open 3.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: book-pages-open 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .book-open-pages span {
@@ -369,7 +369,24 @@ body {
 }
 
 .character-dossier-card {
+  position: absolute;
   animation: character-card-focus 2.1s ease forwards;
+}
+
+.character-dossier-card-back {
+  opacity: 0.55;
+  transform: translate(-28px, 18px) rotate(-6deg);
+  animation: character-card-back 2.1s ease forwards;
+}
+
+.character-dossier-card-mid {
+  opacity: 0.72;
+  transform: translate(24px, 10px) rotate(5deg);
+  animation: character-card-mid 2.1s ease forwards;
+}
+
+.character-dossier-card-front {
+  z-index: 2;
 }
 
 .character-dossier-photo {
@@ -474,6 +491,32 @@ body {
   100% {
     transform: scale(1);
     filter: blur(0);
+  }
+}
+
+@keyframes character-card-back {
+  0% {
+    opacity: 0;
+    transform: translate(-46px, 30px) rotate(-10deg) scale(0.94);
+  }
+
+  34%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-28px, 18px) rotate(-6deg) scale(1);
+  }
+}
+
+@keyframes character-card-mid {
+  0% {
+    opacity: 0;
+    transform: translate(42px, 24px) rotate(9deg) scale(0.94);
+  }
+
+  42%,
+  100% {
+    opacity: 0.72;
+    transform: translate(24px, 10px) rotate(5deg) scale(1);
   }
 }
 

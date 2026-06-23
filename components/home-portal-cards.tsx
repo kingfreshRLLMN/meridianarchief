@@ -42,7 +42,7 @@ export default function HomePortalCards() {
     setActiveTransition(transition);
     window.setTimeout(() => {
       router.push(href);
-    }, transition === "book" ? 4000 : 2400);
+    }, 2400);
   };
 
   return (
@@ -93,7 +93,7 @@ function PortalTransitionOverlay({
     transition === "business"
       ? "Register openen"
       : transition === "character"
-        ? "Dossier scannen"
+        ? "Dossiers scannen"
         : "Wetboek openen";
 
   return (
@@ -129,7 +129,9 @@ function BusinessRegisterTransition() {
 function CharacterDossierTransition() {
   return (
     <div className="character-dossier-stage">
-      <div className="character-dossier-card">
+      <div className="character-dossier-card character-dossier-card-back" />
+      <div className="character-dossier-card character-dossier-card-mid" />
+      <div className="character-dossier-card character-dossier-card-front">
         <span className="character-dossier-photo" />
         <span className="character-dossier-line character-dossier-line-one" />
         <span className="character-dossier-line character-dossier-line-two" />
