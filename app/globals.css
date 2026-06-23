@@ -60,6 +60,10 @@ body {
     inset 0 0 20px rgba(224, 184, 90, 0.1);
 }
 
+.meridian-ticker-track {
+  animation: meridian-ticker-move 42s linear infinite;
+}
+
 @keyframes neon-border-spin {
   to {
     --neon-angle: 360deg;
@@ -74,6 +78,16 @@ body {
 
   50% {
     filter: saturate(1.25);
+  }
+}
+
+@keyframes meridian-ticker-move {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
 

@@ -1,5 +1,6 @@
 import ArchiveSearchBar from "@/components/archive-search-bar";
 import HomePortalCards from "@/components/home-portal-cards";
+import MeridianTicker from "@/components/meridian-ticker";
 import SocialConnectButtons from "@/components/social-connect-buttons";
 import { searchItems } from "@/data/search-items";
 import Image from "next/image";
@@ -58,6 +59,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <MeridianTicker />
       </section>
     </main>
   );
