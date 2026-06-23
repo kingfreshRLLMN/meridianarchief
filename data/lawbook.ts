@@ -34,8 +34,8 @@ export const lawbookCategories: LawbookCategory[] = [
   {
     title: "Geweldsdelicten",
     slug: "geweldsdelicten",
-    published: false,
-    href: "#",
+    published: true,
+    href: "/wetboek/geweldsdelicten",
   },
   {
     title: "Wet Wapens en Munitie",
