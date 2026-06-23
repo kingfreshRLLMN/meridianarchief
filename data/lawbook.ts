@@ -40,8 +40,8 @@ export const lawbookCategories: LawbookCategory[] = [
   {
     title: "Wet Wapens en Munitie",
     slug: "wet-wapens-en-munitie",
-    published: false,
-    href: "#",
+    published: true,
+    href: "/wetboek/wet-wapens-en-munitie",
   },
   {
     title: "Rijontzeggingen & Inbeslagnames",
